@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/gogf/gf-demo-chat/v2/apiv1"
+	"github.com/gogf/gf-demo-chat/v2/api/v1"
 	"github.com/gogf/gf-demo-chat/v2/internal/consts"
 	"github.com/gogf/gf-demo-chat/v2/internal/model"
 	"github.com/gogf/gf/v2/container/garray"
@@ -29,7 +29,7 @@ type hChat struct {
 	Names *gset.StrSet // All names in chat for unique name validation.
 }
 
-func (h *hChat) Index(ctx context.Context, req *apiv1.ChatIndexReq) (res *apiv1.ChatIndexRes, err error) {
+func (h *hChat) Index(ctx context.Context, req *v1.ChatIndexReq) (res *v1.ChatIndexRes, err error) {
 	var (
 		r = g.RequestFromCtx(ctx)
 	)
@@ -43,7 +43,7 @@ func (h *hChat) Index(ctx context.Context, req *apiv1.ChatIndexReq) (res *apiv1.
 	return
 }
 
-func (h *hChat) Name(ctx context.Context, req *apiv1.ChatNameReq) (res *apiv1.ChatNameRes, err error) {
+func (h *hChat) Name(ctx context.Context, req *v1.ChatNameReq) (res *v1.ChatNameRes, err error) {
 	var (
 		session = g.RequestFromCtx(ctx).Session
 	)
@@ -62,7 +62,7 @@ func (h *hChat) Name(ctx context.Context, req *apiv1.ChatNameReq) (res *apiv1.Ch
 	return
 }
 
-func (h *hChat) Websocket(ctx context.Context, req *apiv1.ChatWebsocketReq) (res *apiv1.ChatWebsocketRes, err error) {
+func (h *hChat) Websocket(ctx context.Context, req *v1.ChatWebsocketReq) (res *v1.ChatWebsocketRes, err error) {
 	var (
 		r       = g.RequestFromCtx(ctx)
 		ws      *ghttp.WebSocket
